@@ -1,0 +1,27 @@
+-- Use the database
+USE names;
+
+-- View the structure of the names table
+DESCRIBE names;
+
+-- Select all names in the database (will show columns even if empty)
+SELECT * FROM names;
+
+-- Insert your own name
+INSERT INTO names (first_name, last_name) VALUES ('raed', 'jribi');
+
+-- Insert another name
+INSERT INTO names (first_name, last_name) VALUES ('hama', 'jribi');
+
+
+-- Read all records
+SELECT * FROM names;
+
+-- Update a record (e.g., change last name of id = 1)
+UPDATE names SET last_name = 'Snow' WHERE id = 1;
+
+-- Delete a record (e.g., delete id = 2)
+DELETE FROM names WHERE id = 2;
+
+-- Final check: show all remaining records
+SELECT * FROM names;

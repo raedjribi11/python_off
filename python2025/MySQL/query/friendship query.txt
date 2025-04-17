@@ -1,0 +1,26 @@
+USE friendships_schema;
+
+INSERT INTO users (first_name, last_name) VALUES 
+('Amy', 'Giver'),
+('Eli', 'Byers'),
+('Big', 'Bird'),
+('Kermit', 'The Frog'),
+('Marky', 'Mark'),
+('Cookie', 'Monster');
+
+INSERT INTO friendships (user_id, friend_id) VALUES 
+(1, 2), (1, 4), (1, 6),
+(2, 1), (2, 3), (2, 5),
+(3, 2), (3, 5),
+(4, 3),
+(5, 1), (5, 6),
+(6, 2), (6, 3);
+
+SELECT 
+    u.first_name, 
+    u.last_name, 
+    f_user.first_name AS friend_first_name, 
+    f_user.last_name AS friend_last_name
+FROM users u
+JOIN friendships f ON u.id = f.user_id
+LEFT JOIN users f_user ON f.friend_id = f_user.id;

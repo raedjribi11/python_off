@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>New Ninja</title></head>
+<body>
+    <h1>New Ninja</h1>
+    <form action="/ninjas/create" method="POST">
+        Dojo:
+        <select name="dojo_id">
+            {% for dojo in dojos %}
+                <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+            {% endfor %}
+        </select><br>
+        First Name: <input type="text" name="first_name"><br>
+        Last Name: <input type="text" name="last_name"><br>
+        Age: <input type="number" name="age"><br>
+        <input type="submit" value="Create">
+    </form>
+    <a href="/dojos">Home</a>
+</body>
+</html>

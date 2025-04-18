@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Create a New Recipe</h2>
+<form action="/recipes/create" method="POST">
+    <div class="mb-2">
+        <input name="name" class="form-control" placeholder="Recipe Name">
+    </div>
+    <div class="mb-2">
+        <textarea name="description" class="form-control" placeholder="Description"></textarea>
+    </div>
+    <div class="mb-2">
+        <textarea name="instructions" class="form-control" placeholder="Instructions"></textarea>
+    </div>
+    <div class="mb-2">
+        <label>Date Cooked:</label>
+        <input type="date" name="date_made" class="form-control">
+    </div>
+    <div class="mb-2">
+        <label>Under 30 minutes?</label>
+        <select name="under_30" class="form-control">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}

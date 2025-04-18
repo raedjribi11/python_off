@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ recipe.name }}</h2>
+<p><strong>Description:</strong> {{ recipe.description }}</p>
+<p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+<p><strong>Date Cooked:</strong> {{ recipe.date_made }}</p>
+<p><strong>Under 30 minutes?</strong> {{ 'Yes' if recipe.under_30 else 'No' }}</p>
+<a href="/recipes" class="btn btn-secondary">Back to Recipes</a>
+{% endblock %}

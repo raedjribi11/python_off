@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Edit Recipe</h2>
+<form action="/recipes/update/{{ recipe.id }}" method="POST">
+    <div class="mb-2">
+        <input name="name" class="form-control" value="{{ recipe.name }}">
+    </div>
+    <div class="mb-2">
+        <textarea name="description" class="form-control">{{ recipe.description }}</textarea>
+    </div>
+    <div class="mb-2">
+        <textarea name="instructions" class="form-control">{{ recipe.instructions }}</textarea>
+    </div>
+    <div class="mb-2">
+        <label>Date Cooked:</label>
+        <input type="date" name="date_made" class="form-control" value="{{ recipe.date_made }}">
+    </div>
+    <div class="mb-2">
+        <label>Under 30 minutes?</label>
+        <select name="under_30" class="form-control">
+            <option value="1" {% if recipe.under_30 %}selected{% endif %}>Yes</option>
+            <option value="0" {% if not recipe.under_30 %}selected{% endif %}>No</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-warning">Update</button>
+</form>
+{% endblock %}
